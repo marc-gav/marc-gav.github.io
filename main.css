@@ -9,19 +9,58 @@ a {
     color: #1565c0;
 }
 
+p {
+    /* fill the whole space with text */
+    text-align: justify;
+}
+
+.blog_entries {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.blog_entries p {
+    font-family: monospace;
+    margin: 0 0 1em 0;
+    padding: 0;
+}
+
+.typewriter h1 {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid rgb(29, 227, 22); /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+}
+
+
 a:hover {
     color: #217ee7;
 }
 
+
 #content {
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%) ;
     text-align: center;
     max-width: 520px;
     padding: 32px;
+    line-height: 1.6em;
+}
+
+#blogEntry {
+    margin-left: 20%;
+    margin-bottom: 10%;
+    margin-top: 10%;
+    text-align: center;
+    max-width: 60%;
     line-height: 1.6em;
 }
 
@@ -52,4 +91,60 @@ a:hover {
 
 .icons a:hover {
     color: #1565c0;
+}
+
+h1 {
+    text-align: left;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #000000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.open-source-table {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 0.01em;
+}
+
+.open-source-table p {
+    text-align: left;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid #f36d33;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+    text-align: left;
 }

@@ -8,10 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Define title -->
-    <title>Carl Barks</title>
+    <title>Marc Gavilan</title>
 
     <!-- Include favicon. Use, e.g., https://favicon.io/ -->
     <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
+
+    <!-- https://devicon.dev/-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
     <!-- Include style sheets -->
     <link rel="stylesheet" href="main.css" />
@@ -29,6 +32,14 @@
       crossorigin="anonymous"
     />
 
+    <!-- Load Animate.css (for animations): https://animate.style/ -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    
+
+
     <!-- Load Academicons (for more icons) -->
     <link
       rel="stylesheet"
@@ -38,44 +49,46 @@
     />
   </head>
 
-  <body>
+  <body>    
+    <div class="navbar">
+      <a href="index.html"><i class="fas fa-home"></i></a>
+      <a href="marcgavilangil@gmail.com" title="E-Mail"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/marc-gav" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/marcgavilangil/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+
     <section id="content">
       <!-- Avatar image -->
-      <img src="image.jpg" alt="Carl Barks" class="avatar" />
+      <img src="image.png" alt="Marc Gavilan" class="avatar" />
 
+      <!-- New line-->
+      <br>
       <!-- Text -->
-      <h1>Hi, I'm Carl Barks!</h1>
+      <h1>$ whoami</h1>
       <p>
-        I am a Ph.D. student in empirical barkology at Woof University.
-      </p>
-      <p>
-        Most of my current research is driven by trying to find an answer to the age-old question of “Who is a good boy?"
-      </p>
-      <p>
-        Please feel free to get in touch!
+        I am Marc, a computer scientist that is interested in almost every aspect of this field. I love learning about anything ranging from reverse engineering, deep learning, software development, high performance computing and computer graphics.
       </p>
 
-      <!-- Icons -->
-      <ul class="icons">
-        <li>
-          <a href="" title="Institutional website"><i class="fas fa-university"></i></a>
-        </li>
-        <li>
-          <a href="" title="E-Mail"><i class="fas fa-envelope"></i></a>
-        </li>
-        <li>
-          <a href="" title="GitHub"><i class="fab fa-github"></i></a>
-        </li>
-        <li>
-          <a href="" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        </li>
-        <li>
-          <a href="" title="NASA / ADS"><i class="ai ai-ads"></i></a>
-        </li>
-        <li>
-          <a href="" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
-        </li>
-      </ul>
+      <h1>$ cat open_source_projects.txt</h1>
+      <p>
+        Preparing a PR that implements a super resolution diffuser network: <a href="https://github.com/huggingface/diffusers/issues/463">https://github.com/huggingface/diffusers/issues/463</a>
+      </p>
+        <!---->
+        <p>
+          Currently participating in the development of a password manager that uses different hashing algorithms to protect the user's passwords. Implemented in C++ <a href="https://github.com/Duzzuti/passwd-manager">https://github.com/Duzzuti/passwd-manager</a>
+        </p>
+
+      <!-- Add a new section with links to my blog entries -->
+      <h1>$ ls -lh ~/blog_entries</h1>
+      <div class="blog_entries" style="display: grid; grid-template-columns: auto auto;">
+        <p>
+          May 28 12:31
+        </p>
+        <p>
+          <!-- Entry with link to posts/docker.html -->
+          <a href="docker.html">C++ ❤️ Docker</a>
+        </p>
+      </div>
     </section>
   </body>
  

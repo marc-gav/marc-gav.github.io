@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Define title -->
+    <title>Marc Gavilan</title>
+
+    <!-- Include favicon. Use, e.g., https://favicon.io/ -->
+    <link rel="icon" type="image/png" href="favicon.png" sizes="32x32" />
+
+    <!-- https://devicon.dev/-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+    <!-- Include style sheets -->
+    <link rel="stylesheet" href="main.css" />
+
+    <!-- Fonts from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;600&display=swap" rel="stylesheet" />
+
+    <!-- Load FontAwesome (for icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+    />
+
+    <!-- Load Animate.css (for animations): https://animate.style/ -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    
+
+
+    <!-- Load Academicons (for more icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.2/css/academicons.min.css"
+      integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg=="
+      crossorigin="anonymous"
+    />
+  </head>
+  
+<body>
+  <div class="navbar">
+    <a href="index.html"><i class="fas fa-home"></i></a>
+    <a href="marcgavilangil@gmail.com" title="E-Mail"><i class="fas fa-envelope"></i></a>
+    <a href="https://github.com/marc-gav" title="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/marcgavilangil/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div id="blogEntry">
+    <h1>C++ ❤️ Docker</h1>
+    <p>
+      On my first entry of this personal page I will be sharing a personal development story of how I went about to solve a problem that is probably extremely common for anyone has worked with multiple people on a project. I will also be sharing some of the resources that I used to solve it.
+    </p>
+
+    <p>
+      Today, I was setting up a C++ project and going through the typical CMake steps to compile it. I followed the author's instructions, but, as expected, it didn't work. Currently, I work on MacOS, while the author mentioned that their compilation was done on Linux. I spent some time trying to resolve the issues by installing libraries, setting environment variables, and so on, but I couldn't make it work. I could have continued trying, and I'm confident that eventually I would have solved it. However, as a programmer, my mind always has a background process looking for shortcuts. That's when I recalled <a href="https://www.youtube.com/watch?v=cPGZMt4cJ0I">that interesting video</a> I watched by LiveOverflow (if you haven't checked out their channel, I highly recommend it!). The video explained how CTF people utilize Docker to quickly run a specific OS version with a predefined set of libraries and tools. Inspired by this, I prepared the following Dockerfile, including everything I needed.
+    </p>
+    <pre>
+      from ubuntu:latest
+  
+      ARG USERNAME 
+  
+      RUN apt-get update
+      RUN apt-get install git -y
+      RUN apt-get install openssl -y
+      RUN apt-get install libssl-dev -y
+      RUN apt-get install wget -y
+      RUN apt-get install vim -y
+      RUN apt-get install g++ -y
+      RUN apt-get install cmake -y
+      RUN apt-get install gdb -y
+  
+      RUN useradd -m -s /bin/bash $USERNAME
+      USER $USERNAME
+      WORKDIR /home/$USERNAME
+    </pre>
+  
+    <p>
+      I opened a shell within the running Docker container and to no-one's surprise the entire compilation process worked flawlessly on the first attempt. Although things were now functioning smoothly, it would be extremely inconvenient to conduct my entire development and debugging process within a single shell inside a Docker container. While I acknowledge that it is probably achievable, I would be missing the extensive range of VSCode extensions available to me, which greatly simplify various aspects of development.
+    </p>
+  
+    <p>
+      I had connected my VSCode to a remote machine via ssh before. Some of these machines had a running Docker container for me to connect to as well. I just had to connect the dots. After following a really helpful <a href="https://www.youtube.com/watch?v=j28aUHbT_c4">tutorial</a> I had a fully functional Ubuntu environment running on my local machine without the need to setup a VM or dual boot. I can also debug the app using VSCode's "interface" for gdb. I was really happy to get this all done in a couple of hours. I'm sure that I will be using this setup a lot in the future.
+    </p>
+  </div>
+  
+</body>
